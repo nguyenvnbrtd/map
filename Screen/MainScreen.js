@@ -167,8 +167,8 @@ const CustomMarker = ({
   }, [])
 
   return(
-    <Marker ref={MarkerRef} coordinate={region} title={region.title} >
-      <View style={{backgroundColor: '#ff7675',  width: 10, height: 10, borderRadius: 10}}></View>
+    <Marker tracksViewChanges={false} ref={MarkerRef} coordinate={region} title={region.title} >
+      <View style={{backgroundColor: '#ff7675' ,width: 20, height: 20, borderRadius: 20}}></View>
       {/* <Image source={require('../assets/nguyen.jpg')}  style={{width:30, height:30}} ></Image> */}
       <Callout tooltip={true}>
         <View style={[styles.callout, styles.centerContent]}>
