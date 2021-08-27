@@ -128,7 +128,7 @@ const MainScreen = (props) =>{
           {selectedRegion!=null&&<CustomMarker region={selectedRegion} show={true}/>}
         </MapView>
         
-        <TouchableOpacity style={[styles.pointListHover, styles.centerContent]} onPress={()=>navigation.navigate('PointList', {Go:Go, setLoading:setIsLoading})}>
+        <TouchableOpacity style={[styles.pointListHover, styles.centerContent]} onPress={()=>{setSelectedRegion(null); navigation.navigate('PointList', {Go:Go, setLoading:setIsLoading})}}>
           <AntDesign name="calendar" color={'#426976'} size={20} />
         </TouchableOpacity>
         <TouchableOpacity style={[styles.pointListHover, styles.centerContent, {top: '16%'}]} onPress={()=> (getMarkList(regions).length>=3)&&setArea(area?false:true)}>

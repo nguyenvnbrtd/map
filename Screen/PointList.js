@@ -89,6 +89,7 @@ const Point = ({
       <TouchableOpacity 
         style={[styles.pointContainer, styles.centerContent, {backgroundColor:(!item.marked)?'#fff':'#b2bec3'}]}
         onPress={()=>(!item.marked)?markReg(item.region, item.key):unMarkReg(item.region, item.key)}
+        onLongPress={()=> navigation.navigate('PointInfo', {item:item})}
         >
         <View style={[styles.actionContainer, styles.centerContent]}>
           <MaterialCommunityIcons name="delete" color={'#8395a7'} size={50} onPress={()=>deleteReg(item.key)} style={{position: 'absolute', left: '2%',}}/>

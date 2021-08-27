@@ -8,12 +8,13 @@ import { useDispatch, useSelector } from 'react-redux';
 
 const PointInfo = ({
     navigation,
-    route,
+    route
 }) => {
     const regions = useSelector(state => state.regionReducer.regionList);
 
+    
     const {item} = route.params; 
-
+    const [text, setText] = useState(item.region.title)
     const add = () => {
         let id = 0;
         regions.map((region)=> {
@@ -22,7 +23,7 @@ const PointInfo = ({
 
         const point = {
             id: id,
-            title: item.region.title,
+            title: text,
             latitude: parseFloat(item.region.latitude).toFixed(2),
             longitude: parseFloat(item.region.longitude).toFixed(2),
             latitudeDelta: parseFloat(item.region.latitudeDelta).toFixed(2),
@@ -40,7 +41,7 @@ const PointInfo = ({
     return (
         <View style= {[styles.container, styles.centerContent]}>
             <StatusBar/>
-            <Text style={[styles.input]}>{item.region.title}</Text>
+            <TextInput style={[styles.input]} value={text} onChangeText={setText}></TextInput>
             <Text style={[styles.input]}>{parseFloat(item.region.latitude).toFixed(2)}</Text>  
             <Text style={[styles.input]}>{parseFloat(item.region.longitude).toFixed(2)}</Text>  
             <Text style={[styles.input]}>{parseFloat(item.region.latitudeDelta).toFixed(2)}</Text> 
