@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState, useEffect} from 'react';
-import { StyleSheet, Text, View, Dimensions, TouchableOpacity, TextInput, BackHandler, Alert  } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, TouchableOpacity, Image, BackHandler, Alert  } from 'react-native';
 import MapView,{PROVIDER_GOOGLE, Marker, Callout, Polygon } from 'react-native-maps';
 import { LinearGradient } from 'expo-linear-gradient';
   
@@ -168,6 +168,8 @@ const CustomMarker = ({
 
   return(
     <Marker ref={MarkerRef} coordinate={region} title={region.title} >
+      <View style={{backgroundColor: '#ff7675',  width: 10, height: 10, borderRadius: 10}}></View>
+      {/* <Image source={require('../assets/nguyen.jpg')}  style={{width:30, height:30}} ></Image> */}
       <Callout tooltip={true}>
         <View style={[styles.callout, styles.centerContent]}>
           <Text style={[ styles.calloutTitle]}>{region.title}</Text>
